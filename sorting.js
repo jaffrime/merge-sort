@@ -48,7 +48,7 @@ while (a.length>0){
 */
 
 // TODO: need to update for non-even numbers
-var iterations = Math.log2(a.length);
+var iterations = Math.log2(randomArray.length);
 
 // for (let i=0;i<iterations;i++){
 //   let temp1 = [];
@@ -60,21 +60,22 @@ var iterations = Math.log2(a.length);
 // }
 
 // NOTE: breaking down the array
-const division = function (array) {
+const divide = function (array) {
+  console.log(array);
   let arrA = [];
   let arrB = [];
-  arrA.push(array.slice(0,array.length/2));
-  arrB.push(array.slice(array.length/2));
+  arrA = array.slice(0,array.length/2);
+  arrB = array.slice(array.length/2);
+
+  console.log(arrA);
+  console.log(arrB);
 
   if (arrA.length>1) {
-    let newA = division(arrA);
-
-    let newB = division(arrB);
-  }
-
-  if (arrA[0]>arrA[1]){
-
-  }
+    // let newA = divide(arrA);
+    arrA = divide(arrA);
+    // let newB = divide(arrB);
+    arrB = divide(arrB);
+  } 
 
 }
 
@@ -82,20 +83,21 @@ const division = function (array) {
 // NOTE: joining two arrays
 const combine = function (a, b){
   let newArray = [];
-  while ((arrA.length>0) || (arrB.length>0)) {
-    if (arrA[0] >= arrB[0]) {
-      newArray.push(arrA[0]);
-      arrA.splice(0,1);
+  while ((a.length>0) || (b.length>0)) {
+    console.log("a = " + a, "b = " + b);
+    console.log("a[0] = " + a[0], "b[0] = " + b[0]);
+    if (a[0] <= b[0] || b.length === 0) {
+      newArray.push(a[0]);
+      a.splice(0,1);
     } else {
-      newArray.push(arrB[0]);
-      arrB.splice(0,1);
+      newArray.push(b[0]);
+      b.splice(0,1);
     }
-    console.log(newArray);
   }
-
+  console.log(newArray);
 }
 
 
 // console.timeEnd("factorial test");
 
-console.log(randomArray);
+// console.log(randomArray);
