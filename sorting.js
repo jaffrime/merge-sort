@@ -75,7 +75,9 @@ const divide = function (array) {
     arrA = divide(arrA);
     // let newB = divide(arrB);
     arrB = divide(arrB);
-  } 
+  } else {
+    combine(arrA, arrB);
+  }
 
 }
 
