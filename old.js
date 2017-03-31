@@ -6,7 +6,7 @@ const divide = function (array, runs) {
   let arrB = [];
   arrA = array.slice(0,array.length/2);
   arrB = array.slice(array.length/2);
-
+  console.log(arrA,arrB);
   return [arrA,arrB];
 }
 
@@ -33,21 +33,12 @@ const mergeSort = function(array){
   // console.log(temp[0],temp[1]);
   if (temp[0].length>1){
       temp[0] = mergeSort(temp[0]);
+  }
+  if (temp[1].length>1){
       temp[1] = mergeSort(temp[1]);
   }
   let newArray = combine(temp[0],temp[1]);
   return newArray;
 }
 
-let arr1 = randomArray.slice();
-let arr2 = randomArray.slice();
-let arr3 = randomArray.slice();
-selectionSort(arr1);
-bubbleSort(arr2);
-
-// console.log("Given Array: ", arr3);
-console.time("factorial test");
-let sortedArray = mergeSort(randomArray);
-console.log("<Merge Sort>");
-// console.log("Sorted Array: ", sortedArray);
-console.timeEnd("factorial test");
+console.log(mergeSort(randomArray));
